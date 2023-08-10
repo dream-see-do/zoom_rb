@@ -41,13 +41,13 @@ def request_headers
   }
 end
 
-def zoom_url(url)
-  /https:\/\/api.zoom.us\/v2#{url}.*/
+def zoom_url(path)
+  /https:\/\/api.zoom.us\/v2#{path}.*/
 end
 
 #OAuth endpoints have a different base_uri
-def zoom_auth_url(url)
-  /https:\/\/zoom.us\/#{url}.*/
+def zoom_auth_url(path)
+  /https:\/\/zoom.us\/#{path}.*/
 end
 
 def jwt_client

@@ -29,7 +29,7 @@ module Zoom
     def headers
       {
         'Accept' => 'application/json',
-        'Content-Type' => 'application/json',
+        'Content-Type' => 'application/json'
       }
     end
 
@@ -37,7 +37,7 @@ module Zoom
       {
         'Authorization' => "Basic #{auth_token}",
         'Accept' => 'application/json',
-        'Content-Type' => 'application/x-www-form-urlencoded',
+        'Content-Type' => 'application/x-www-form-urlencoded'
       }
     end
 
@@ -52,7 +52,7 @@ module Zoom
     end
 
     def auth_token
-      Base64.encode64("#{Zoom.configuration.api_key}:#{Zoom.configuration.api_secret}").delete("\n")
+      Base64.urlsafe_encode64("#{Zoom.configuration.api_key}:#{Zoom.configuration.api_secret}").delete("\n")
     end
   end
 end

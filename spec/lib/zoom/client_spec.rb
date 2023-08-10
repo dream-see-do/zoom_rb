@@ -123,6 +123,7 @@ describe Zoom::Client do
 
   describe 'ServerToServerOAuth client' do
     let(:access_token) {'xxx'}
+    let(:account_id) {'xxx'}
     let(:client) do
       Zoom::Client::ServerToServerOAuth.new(access_token: access_token, timeout: 30)
     end
@@ -136,7 +137,7 @@ describe Zoom::Client do
     end
 
     it 'requires at least an account_id' do
-      expect { Zoom::Client::ServerToServerOAuth.new(access_token: access_token) }.not_to raise_error
+      expect { Zoom::Client::ServerToServerOAuth.new(account_id: account_id) }.not_to raise_error
     end
 
     it 'creates instance of Zoom::Client if api_key and api_secret is provided' do
@@ -148,7 +149,7 @@ describe Zoom::Client do
     end
 
     describe 'set_tokens' do
-      let(:client) { Zoom::Client::ServerToServerOAuth.new(account_id: 'xxx') }
+      let(:client) { Zoom::Client::ServerToServerOAuth.new(account_id: account_id) }
 
       before :each do
         Zoom.configure do |config|
